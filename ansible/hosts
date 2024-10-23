@@ -1,2 +1,0 @@
-[webserver]
-85.209.9.128 ansible_user=ansible_user ansible_ssh_pass=ansible_password

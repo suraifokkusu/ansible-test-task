@@ -5,5 +5,7 @@
   roles:
     - docker
     - nginx
-    # - php
+
+    #Роли отключены, т.к. окружение настраивается в Dockerfile
+    # - php 
     # - mysql
