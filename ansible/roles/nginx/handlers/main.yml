@@ -1,0 +1,9 @@
+---
+# - name: Reload Nginx
+#   ansible.builtin.systemd:
+#     name: nginx
+#     state: reloaded
+- name: Reload Nginx
+  ansible.builtin.shell: docker-compose restart nginx
+  args:
+      chdir: /opt/docker

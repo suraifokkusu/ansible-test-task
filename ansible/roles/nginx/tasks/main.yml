@@ -1,0 +1,44 @@
+---
+- name: Create necessary directories for Nginx
+  ansible.builtin.file:
+    path: /opt/docker/nginx/conf.d
+    state: directory
+    mode: '0755'
+
+- name: Generate nginx config from template
+  ansible.builtin.template:
+    src: ./templates/nginx.conf.j2
+    dest: /opt/docker/nginx/nginx.conf
+  notify:
+    - Reload Nginx
+
+- name: Generate nginx default virtual host config from template
+  ansible.builtin.template:
+    src: ./templates/default.conf.j2
+    dest: /opt/docker/nginx/conf.d/default.conf
+  notify:
+    - Reload Nginx
+
+- name: Copy necessary files
+  ansible.builtin.copy:
+    src: ../../../docker/
+    dest: /opt/docker/
+    remote_src: no  # Указываем, что копируем с локального источника
+    force: yes
+
+- name: Copy app files to /var/www/html
+  ansible.builtin.copy:
+    src: ../app/
+    dest: /var/www/html/
+    force: yes
+    remote_src: no
+    
+- name: Start Docker containers
+  ansible.builtin.shell: docker-compose up -d
+  args:
+    chdir: /opt/docker/
+
+# - name: Restart nginx
+#   ansible.builtin.shell: docker-compose restart nginx
+#   args:
+#     chdir: /opt/docker

@@ -1,0 +1,4 @@
+---
+# vars file for php
+# roles/php/vars/main.yml
+php_version: "7.4"

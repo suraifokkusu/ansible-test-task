@@ -1,0 +1,16 @@
+---
+- name: Install Docker
+  ansible.builtin.apt:
+    name: docker.io
+    state: present
+
+- name: Install Docker Compose
+  ansible.builtin.apt:
+    name: docker-compose
+    state: present
+
+- name: Install rsync on remote server
+  ansible.builtin.apt:
+    name: rsync
+    state: present
+

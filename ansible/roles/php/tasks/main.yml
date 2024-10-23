@@ -1,0 +1,27 @@
+---
+# roles/php/tasks/main.yml
+
+- name: Install PHP and extensions
+  apt:
+    name:
+      - php
+      - php-fpm
+      - php-mysql
+      - php-gd
+      - php-xml
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Copy PHP configuration
+  template:
+    src: php.ini.j2
+    dest: /etc/php/7.4/fpm/php.ini
+  notify: Restart PHP-FPM
+
+- name: Ensure PHP-FPM is running
+  service:
+    name: php7.4-fpm
+    state: started
+    enabled: true
+
+

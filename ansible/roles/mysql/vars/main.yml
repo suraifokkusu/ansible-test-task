@@ -1,0 +1,7 @@
+---
+# vars file for mysql
+# roles/mysql/vars/main.yml
+mysql_root_password: "rootpassword"
+mysql_database: "exampledb"
+mysql_user: "exampleuser"
+mysql_password: "examplepass"

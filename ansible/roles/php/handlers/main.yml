@@ -1,0 +1,10 @@
+---
+- name: Restart PHP-FPM
+  service:
+    name: php7.4-fpm
+    state: restarted
+
+# - name: Reload PHP-FPM
+#   ansible.builtin.shell: docker-compose up php
+#   args:
+#       chdir: /opt/docker

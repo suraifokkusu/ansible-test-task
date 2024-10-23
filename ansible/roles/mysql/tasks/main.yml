@@ -1,0 +1,23 @@
+---
+---
+# roles/mysql/tasks/main.yml
+
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure MySQL service is running
+  service:
+    name: mysql
+    state: started
+    enabled: true
+
+- name: Copy MySQL configuration
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/my.cnf
+  notify: Restart MySQL
+  
+  
