@@ -43,7 +43,7 @@
    Создайте файл инвентаря (например, `hosts.ini`) с данными вашего удалённого сервера:
 
    ```ini
-   [web]
+   [webserver]
    your_server_ip ansible_ssh_user=your_username
    ```
 
