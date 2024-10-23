@@ -56,7 +56,7 @@
    Выполните Ansible плейбук для развертывания приложения:
 
    ```bash
-   ansible-playbook -i ansible/hosts/ini ansible/playbook.yml
+   ansible-playbook -i ansible/hosts.ini ansible/playbook.yml
    ```
 
 ## Описание файлов
