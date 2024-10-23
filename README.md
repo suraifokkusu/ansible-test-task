@@ -34,8 +34,8 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone <repository_url>
-   cd project
+   git clone https://github.com/suraifokkusu/ansible-test-task
+   cd ansible-test-task
    ```
 
 2. **Настройка инвентаря:**
@@ -56,7 +56,7 @@
    Выполните Ansible плейбук для развертывания приложения:
 
    ```bash
-   ansible-playbook -i hosts.ini ansible/playbook.yml
+   ansible-playbook -i ansible/hosts ansible/playbook.yml
    ```
 
 ## Описание файлов
